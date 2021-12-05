@@ -43,6 +43,28 @@ function playRound (playerPick, computerPick) {
     else if (playerPick ==="rock" && computerPick === "paper"){
         return "You lose :( - Paper beats Rock";
     }
+
+
+    else if (playerPick ==="scissors" && computerPick === "rock"){
+        return "You lose :( - Rock beats Scissors";
+    }
+    else if (playerPick === "scissors" && computerPick === "paper") {
+        return "You win - Scissors beats Paper!";
+    }
+    else if (playerPick === "scissors" && computerPick === "scissors") {
+        return "Scissors ties with scissors";
+    }
+    
+
+    else if (playerPick === "paper" && computerPick === "rock") {
+        return "You win - Paper beats Rock!";
+    }
+    else if (playerPick === "paper" && computerPick === "paper") {
+        return "Paper ties with Paper";
+    }
+    else if (playerPick === "paper" && computerPick === "scissors") {
+        return "You lose :( - Scissors beats Paper";
+    }
 }
 
 console.log(playRound(playerPick, computerPick))
