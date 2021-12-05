@@ -27,15 +27,20 @@ function playerPlay(){
     return playerSelection;
 }
 
-let computerPick = computerPlay();
-let playerPick = playerPlay();
+let computerPick
+let playerPick
 
-console.log("You pick " + playerPick);
-console.log("Computer picks " + computerPick);
 
-function playRound (playerPick, computerPick) {
+function playRound() {
+    computerPick = computerPlay();
+    playerPick = playerPlay();
+    
+
+    console.log("You pick " + playerPick);
+    console.log("Computer picks " + computerPick);
+
     if (playerPick === "rock" && computerPick === "rock"){
-        return "Rock ties with Rock - try again";
+        console.log("Rock ties with Rock - try again");
     }
     else if (playerPick ==="rock" && computerPick === "scissors") {
         return "You win - Rock beats scissors!"
@@ -67,4 +72,14 @@ function playRound (playerPick, computerPick) {
     }
 }
 
-console.log(playRound(playerPick, computerPick))
+let playRoundVar
+
+function game(){
+    console.log(playRound())
+    console.log(playRound())
+    console.log(playRound())
+    console.log(playRound())
+    console.log(playRound())
+    }
+
+game();
