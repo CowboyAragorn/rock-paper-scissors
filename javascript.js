@@ -23,12 +23,22 @@ function playerPlay(){
     let playerSelection = prompt("Choose your fighter: rock, paper, or scissors?");
     //Convert the input to lowercase//
     playerSelection = playerSelection.toLowerCase();
+
+    if (playerSelection === "rock"|| playerSelection === "paper"|| playerSelection === "scissors") {
     //Convert the strings to numbers with rock being 1, scissors being 2, and paper being 3//
-    return playerSelection;
+       return playerSelection;
+    }
+
+    else {
+        console.log("Invalid entry, type Rock, Paper, or Scissors")
+        return playerPlay();
+    }
 }
 
 let computerPick
 let playerPick
+let compScore = 0
+let playerScore = 0
 
 
 function playRound() {
@@ -40,20 +50,25 @@ function playRound() {
     console.log("Computer picks " + computerPick);
 
     if (playerPick === "rock" && computerPick === "rock"){
-        console.log("Rock ties with Rock - try again");
+        return "Rock ties with Rock - try again";
+    
     }
     else if (playerPick ==="rock" && computerPick === "scissors") {
-        return "You win - Rock beats scissors!"
-    }
+        playerScore++;
+        return("You win - Rock beats scissors!");
+    }   
     else if (playerPick ==="rock" && computerPick === "paper"){
-        return "You lose :( - Paper beats Rock";
+        compScore++
+        return ("You lose :( - Paper beats Rock");
     }
 
 
     else if (playerPick ==="scissors" && computerPick === "rock"){
+        compScore++;
         return "You lose :( - Rock beats Scissors";
     }
     else if (playerPick === "scissors" && computerPick === "paper") {
+        playerScore++;
         return "You win - Scissors beats Paper!";
     }
     else if (playerPick === "scissors" && computerPick === "scissors") {
@@ -62,12 +77,14 @@ function playRound() {
     
 
     else if (playerPick === "paper" && computerPick === "rock") {
+        playerScore++;
         return "You win - Paper beats Rock!";
     }
     else if (playerPick === "paper" && computerPick === "paper") {
         return "Paper ties with Paper";
     }
     else if (playerPick === "paper" && computerPick === "scissors") {
+        compScore++;
         return "You lose :( - Scissors beats Paper";
     }
 }
@@ -75,11 +92,31 @@ function playRound() {
 let playRoundVar
 
 function game(){
-    console.log(playRound())
-    console.log(playRound())
-    console.log(playRound())
-    console.log(playRound())
-    console.log(playRound())
+    console.log(playRound());
+        console.log("Player Score: " + playerScore);
+        console.log("Computer Score: " + compScore);
+    console.log(playRound());
+    console.log("Player Score: " + playerScore);
+    console.log("Computer Score: " + compScore);
+    console.log(playRound());
+        console.log("Player Score: " + playerScore);
+        console.log("Computer Score: " + compScore);
+    console.log(playRound());
+        console.log("Player Score: " + playerScore);
+        console.log("Computer Score: " + compScore);
+    console.log(playRound());
+        console.log("Player Score: " + playerScore);
+        console.log("Computer Score: " + compScore);
+
+    if (playerScore > compScore){
+        return "Congratulations! You beat my stupid fucking ass";
     }
+    else if (playerScore === compScore){
+        return "You tied my stupid fucking ass";
+    }
+    else {
+        return "My stupid fucking ass beat you";
+    }
+}
 
 game();
