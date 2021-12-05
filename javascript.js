@@ -1,6 +1,7 @@
 function computerPlay(){
     //Computer selects an integer between 1-3//
     let computerSelection = Math.floor((Math.random()*3)+1);
+    //assign the integers to strings and return//
     if (computerSelection === 1){
         computerSelection = "rock";
         return computerSelection;
@@ -13,7 +14,7 @@ function computerPlay(){
         computerSelection = "scissors";
         return computerSelection;
     }
-    //Returns that integer//
+
 }
 
 
@@ -23,32 +24,35 @@ function playerPlay(){
     let playerSelection = prompt("Choose your fighter: rock, paper, or scissors?");
     //Convert the input to lowercase//
     playerSelection = playerSelection.toLowerCase();
-
+    // if the user selects exactly one of the three then return the value//
     if (playerSelection === "rock"|| playerSelection === "paper"|| playerSelection === "scissors") {
-    //Convert the strings to numbers with rock being 1, scissors being 2, and paper being 3//
        return playerSelection;
     }
-
+    //otherwise end the function and run it again//
     else {
         console.log("Invalid entry, type Rock, Paper, or Scissors")
         return playerPlay();
     }
 }
 
+//Define variables that we will assign the computer values to//
 let computerPick
 let playerPick
+//define variables that we will keep score in//
 let compScore = 0
 let playerScore = 0
 
 
 function playRound() {
+    //assign variables to computer and player functions and run them//
     computerPick = computerPlay();
     playerPick = playerPlay();
     
-
+    //Tell player what each person selected//
     console.log("You pick " + playerPick);
     console.log("Computer picks " + computerPick);
 
+    //compare strings to each other, display message if they won round, add points to scores//
     if (playerPick === "rock" && computerPick === "rock"){
         return "Rock ties with Rock - try again";
     
@@ -91,6 +95,7 @@ function playRound() {
 
 let playRoundVar
 
+//Function that calls the rounds 5 times and displays scores. Delivers win vs loss message at end//
 function game(){
     console.log(playRound());
         console.log("Player Score: " + playerScore);
@@ -119,4 +124,5 @@ function game(){
     }
 }
 
+//call game//
 game();
