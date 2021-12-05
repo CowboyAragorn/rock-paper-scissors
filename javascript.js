@@ -109,13 +109,13 @@ function game(){
         console.log("Computer Score: " + compScore);
 
     if (playerScore > compScore){
-        return "Congratulations! You beat my stupid fucking ass";
+        console.log( "Congratulations! You beat my stupid fucking ass");
     }
     else if (playerScore === compScore){
-        return "You tied my stupid fucking ass";
+        console.log ( "You tied my stupid fucking ass");
     }
     else {
-        return "My stupid fucking ass beat you";
+        console.log( "My stupid fucking ass beat you");
     }
 }
 
