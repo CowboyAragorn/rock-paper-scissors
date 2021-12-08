@@ -4,17 +4,19 @@ function computerPlay(){
     //assign the integers to strings and return//
     if (computerSelection === 1){
         computerSelection = "rock";
+        console.log("The computer chose " + computerSelection)
         return computerSelection;
     }
     else if (computerSelection === 2) {
         computerSelection = "paper";
+        console.log("The computer chose " + computerSelection)
         return computerSelection;
     }
     else {
         computerSelection = "scissors";
+        console.log("The Computer Chose " + computerSelection)
         return computerSelection;
     }
-
 }
 
 
@@ -45,12 +47,12 @@ let playerScore = 0
 
 function playRound() {
     //assign variables to computer and player functions and run them//
-    computerPick = computerPlay();
-    playerPick = playerPlay();
+    //computerPick = computerPlay();
+    //playerPick = playerPlay();
     
     //Tell player what each person selected//
-    console.log("You pick " + playerPick);
-    console.log("Computer picks " + computerPick);
+    //console.log("You pick " + playerPick);
+    //console.log("Computer picks " + computerPick);
 
     //compare strings to each other, display message if they won round, add points to scores//
     if (playerPick === "rock" && computerPick === "rock"){
@@ -92,11 +94,50 @@ function playRound() {
         return "You lose :( - Scissors beats Paper";
     }
 }
+let playerSelection
 
-let playRoundVar
+function choseRock() {
+     playerSelection = 'rock'
+        console.log("You chose " + playerSelection)
+        return playerSelection
+    }
+
+
+function chosePaper() {
+    playerSelection = 'paper'
+    console.log("You chose " + playerSelection)
+    return playerSelection
+}
+
+
+function choseScissors() {
+    playerSelection = 'scissors'
+    console.log("You chose " + playerSelection)
+    return playerSelection
+}
+
+const btnRock = document.querySelector('#btnRock');
+    btnRock.addEventListener('click', choseRock);
+    btnRock.addEventListener('click', function(){
+        console.log(playerSelection)});
+    btnRock.addEventListener('click', computerPlay);
+
+const btnPaper = document.querySelector('#btnPaper');
+    btnPaper.addEventListener('click', chosePaper);
+    btnPaper.addEventListener('click', function(){
+        console.log(playerSelection)});
+    btnPaper.addEventListener('click', computerPlay);
+
+const btnScissors = document.querySelector('#btnScissors');
+    btnScissors.addEventListener('click', choseScissors);
+    btnScissors.addEventListener('click', function(){
+        console.log(playerSelection)});
+    btnScissors.addEventListener('click', computerPlay);
+
+
 
 //Function that calls the rounds 5 times and displays scores. Delivers win vs loss message at end//
-function game(){
+/*function game(){
     console.log(playRound());
         console.log("Player Score: " + playerScore);
         console.log("Computer Score: " + compScore);
@@ -123,6 +164,7 @@ function game(){
         console.log( "My stupid fucking ass beat you");
     }
 }
+*/
 
 //call game//
-game();
+//game();
