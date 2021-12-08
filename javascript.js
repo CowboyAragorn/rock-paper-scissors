@@ -1,6 +1,7 @@
+let computerSelection
 function computerPlay(){
     //Computer selects an integer between 1-3//
-    let computerSelection = Math.floor((Math.random()*3)+1);
+    computerSelection = Math.floor((Math.random()*3)+1);
     //assign the integers to strings and return//
     if (computerSelection === 1){
         computerSelection = "rock";
@@ -38,63 +39,98 @@ function playerPlay(){
 }
 
 //Define variables that we will assign the computer values to//
-let computerPick
-let playerPick
+//let computerPick
+//let playerPick
 //define variables that we will keep score in//
 let compScore = 0
 let playerScore = 0
-
+let total = 0
 
 function playRound() {
     //assign variables to computer and player functions and run them//
-    //computerPick = computerPlay();
-    //playerPick = playerPlay();
+    //computerSelection = computerPlay();
+    //playerSelection = playerPlay();
     
     //Tell player what each person selected//
-    //console.log("You pick " + playerPick);
-    //console.log("Computer picks " + computerPick);
+    //console.log("You pick " + playerSelection);
+    //console.log("Computer picks " + computerSelection);
 
     //compare strings to each other, display message if they won round, add points to scores//
-    if (playerPick === "rock" && computerPick === "rock"){
-        return "Rock ties with Rock - try again";
-    
+    if (playerSelection === "rock" && computerSelection === "rock"){
+        console.log( "Rock ties with Rock - try again");
+        return
     }
-    else if (playerPick ==="rock" && computerPick === "scissors") {
-        playerScore++;
-        return("You win - Rock beats scissors!");
+    else if (playerSelection ==="rock" && computerSelection === "scissors") {;
+        console.log("You win - Rock beats scissors!");
+        return playerScore++
     }   
-    else if (playerPick ==="rock" && computerPick === "paper"){
-        compScore++
-        return ("You lose :( - Paper beats Rock");
+    else if (playerSelection ==="rock" && computerSelection === "paper"){
+        
+        console.log("You lose :( - Paper beats Rock");
+        return compScore++
     }
 
 
-    else if (playerPick ==="scissors" && computerPick === "rock"){
+    else if (playerSelection ==="scissors" && computerSelection === "rock"){
         compScore++;
-        return "You lose :( - Rock beats Scissors";
+        console.log ("You lose :( - Rock beats Scissors");
     }
-    else if (playerPick === "scissors" && computerPick === "paper") {
+    else if (playerSelection === "scissors" && computerSelection === "paper") {
         playerScore++;
-        return "You win - Scissors beats Paper!";
+        console.log("You win - Scissors beats Paper!");
+        
     }
-    else if (playerPick === "scissors" && computerPick === "scissors") {
-        return "Scissors ties with scissors";
+    else if (playerSelection === "scissors" && computerSelection === "scissors") {
+        console.log ("Scissors ties with scissors");
     }
     
 
-    else if (playerPick === "paper" && computerPick === "rock") {
+    else if (playerSelection === "paper" && computerSelection === "rock") {
         playerScore++;
-        return "You win - Paper beats Rock!";
+        console.log("You win - Paper beats Rock!");
     }
-    else if (playerPick === "paper" && computerPick === "paper") {
-        return "Paper ties with Paper";
+    else if (playerSelection === "paper" && computerSelection === "paper") {
+        console.log("Paper ties with Paper");
     }
-    else if (playerPick === "paper" && computerPick === "scissors") {
+    else if (playerSelection === "paper" && computerSelection === "scissors") {
         compScore++;
-        return "You lose :( - Scissors beats Paper";
+        console.log("You lose :( - Scissors beats Paper");
     }
 }
+
+
+//Keeps score and displays current score in spans//
+
+function keepScore(){
+    const playerScoreDisplay = document.querySelector("#playerScoreTally");
+        //const playerP1 = document.createElement("p");
+        //playerP1.innerText = (playerScore);
+        playerScoreDisplay.innerText = playerScore;
+    const compScoreDisplay = document.querySelector("#compScoreTally");
+        compScoreDisplay.innerText = compScore;
+   
+  }
+
+const winnerP1 = document.createElement("p")
+function claimVictory(){
+    const winnerDisplay = document.querySelector("#winner");
+    if (playerScore >= 5 || compScore >= 5) {
+        winnerP1.innerText = ("Player score: " + playerScore + " Computer score: " + compScore)
+        winnerDisplay.append(winnerP1);
+        playerScore = [];
+        compScore = [];
+        return
+    }
+}
+ 
+function cleanSlate(){
+    winnerP1.style.display = "none";
+   }
+
+
 let playerSelection
+
+//Individual functions for buttons//
 
 function choseRock() {
      playerSelection = 'rock'
@@ -116,11 +152,18 @@ function choseScissors() {
     return playerSelection
 }
 
+//Event Listeners//
+
 const btnRock = document.querySelector('#btnRock');
     btnRock.addEventListener('click', choseRock);
     btnRock.addEventListener('click', function(){
         console.log(playerSelection)});
     btnRock.addEventListener('click', computerPlay);
+    btnRock.addEventListener('click', function(){
+        console.log(computerSelection)});
+    btnRock.addEventListener('click', playRound);
+    btnRock.addEventListener('click', keepScore);
+    btnRock.addEventListener('click', claimVictory);
 
 const btnPaper = document.querySelector('#btnPaper');
     btnPaper.addEventListener('click', chosePaper);
@@ -133,6 +176,9 @@ const btnScissors = document.querySelector('#btnScissors');
     btnScissors.addEventListener('click', function(){
         console.log(playerSelection)});
     btnScissors.addEventListener('click', computerPlay);
+
+
+
 
 
 
@@ -167,4 +213,5 @@ const btnScissors = document.querySelector('#btnScissors');
 */
 
 //call game//
-//game();
+//game();//]
+
