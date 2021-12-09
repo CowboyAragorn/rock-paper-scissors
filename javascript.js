@@ -162,7 +162,7 @@ const winnerP3 = document.createElement("p");
 
 function claimVictory(){
     const winnerDisplay = document.querySelector("#winner");
-    if (playerScore >= 5 || compScore >= 5) {
+    if (playerScore >= 5) {
         winnerP1.innerText = ("You Win! Do you feel better about yourself now?")
         //winnerP2.innerText = ("FINAL: Player score: " + playerScore + " Computer score: " + compScore)
         winnerP3.innerText = ("-Click an Option to Play Again-");
