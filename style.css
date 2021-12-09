@@ -1,3 +1,7 @@
+html{
+background-color: cornflowerblue
+
+}
 body{
     margin: 0;
     padding: 0;
@@ -5,6 +9,7 @@ body{
 .buttons{
     display:flex;
     justify-content: center;
+    align-items: center;
     background-color: cornflowerblue;
 }
 
@@ -16,11 +21,39 @@ body{
 
 }
 
-.scoreContainer{
+.roundContainer{
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 25%;
     background-color: cornflowerblue;
     font-size: 25pt;
+    padding: 15px;
+    padding-bottom: 15pt;
+}
+
+#playerSelection , #compSelection{
+   width: 400px;
+
+}
+
+.scoreContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25%;
+    background-color: cornflowerblue;
+    font-size: 25pt;
+    padding: 15px;
+    padding-bottom: 25pt;
+
+}
+
+#winner{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: blanchedalmond;
 
 }

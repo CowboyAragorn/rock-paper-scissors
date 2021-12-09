@@ -45,6 +45,7 @@ function playerPlay(){
 let compScore = 0
 let playerScore = 0
 let total = 0
+let roundResult
 
 function playRound() {
     //assign variables to computer and player functions and run them//
@@ -56,50 +57,69 @@ function playRound() {
     //console.log("Computer picks " + computerSelection);
 
     //compare strings to each other, display message if they won round, add points to scores//
+    //Would rewrite roundResult into something that the variables would auto-plug into but
+    //already have the sentences written from previous iteration
+
+("player " + playerSelection + " BEATS computer " + computerSelection);
+
     if (playerSelection === "rock" && computerSelection === "rock"){
-        console.log( "Rock ties with Rock - try again");
+        roundResult = ("player " + playerSelection + " TIES computer " + computerSelection);
+        
         return
     }
     else if (playerSelection ==="rock" && computerSelection === "scissors") {;
-        console.log("You win - Rock beats scissors!");
+        roundResult = ("player " + playerSelection + "          BEATS computer      " + computerSelection);
         return playerScore++
     }   
     else if (playerSelection ==="rock" && computerSelection === "paper"){
         
-        console.log("You lose :( - Paper beats Rock");
+        roundResult = ("player " + playerSelection + " LOSES to computer " + computerSelection);
         return compScore++
     }
 
 
     else if (playerSelection ==="scissors" && computerSelection === "rock"){
         
-        console.log ("You lose :( - Rock beats Scissors");
+        roundResult = "Rock beats Scissors";
         return compScore++
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
         
-        console.log("You win - Scissors beats Paper!");
+        roundResult ="Scissors beats Paper!";
         return playerScore++
     }
     else if (playerSelection === "scissors" && computerSelection === "scissors") {
-        console.log ("Scissors ties with scissors");
+        roundResult = "Scissors ties with scissors";
     }   
     
 
     else if (playerSelection === "paper" && computerSelection === "rock") {
        
-        console.log("You win - Paper beats Rock!");
+        roundResult = "Paper beats Rock!";
         return playerScore++
     }
     else if (playerSelection === "paper" && computerSelection === "paper") {
-        console.log("Paper ties with Paper");
+        roundResult = "Paper ties with Paper";
     }
     else if (playerSelection === "paper" && computerSelection === "scissors") {
         
-        console.log("You lose :( - Scissors beats Paper");
+        roundResult = "Scissors beats Paper";
         return compScore++
     }
 }
+
+const playerSelectionDisplay = document.querySelector("#playerSelection");
+const compSelectionDisplay = document.querySelector("#compSelection");
+
+
+
+function resultRound(){
+    playerSelectionUpper = playerSelection.toUpperCase();
+    compSelectionUpper = computerSelection.toUpperCase();
+    playerSelectionDisplay.innerText = ("Player Chose: " + playerSelectionUpper) ;
+    compSelectionDisplay.innerText = ("Computer Chose: " + compSelectionUpper);
+}
+
 
 
 //Keeps score and displays current score in spans//
@@ -131,9 +151,12 @@ function keepScore(){
 
   }
 
-const winnerP1 = document.createElement("p")
-const winnerP2 = document.createElement("p")
-const winnerP3 = document.createElement("p")
+const winnerP1 = document.createElement("p");
+  winnerP1.id = "winnerP1";
+//const winnerP2 = document.createElement("p");
+  //winnerP2.id = "winnerP2";
+const winnerP3 = document.createElement("p");
+  winnerP3.id = "winnerP3";
 
 
 
@@ -141,10 +164,10 @@ function claimVictory(){
     const winnerDisplay = document.querySelector("#winner");
     if (playerScore >= 5 || compScore >= 5) {
         winnerP1.innerText = ("You Win! Do you feel better about yourself now?")
-        winnerP2.innerText = ("FINAL: Player score: " + playerScore + " Computer score: " + compScore)
+        //winnerP2.innerText = ("FINAL: Player score: " + playerScore + " Computer score: " + compScore)
         winnerP3.innerText = ("-Click a weapon to reset and play again-");
-        winnerDisplay.append(winnerP2);
         winnerDisplay.append(winnerP1);
+        //winnerDisplay.append(winnerP2);
         winnerDisplay.append(winnerP3);
         playerScore = 0;
         compScore = 0;
@@ -152,36 +175,24 @@ function claimVictory(){
     }
     else if (compScore >= 5){
         winnerP1.innerText = ("You lose! I beat you! I don't even have a brain!")
-        winnerP2.innerText = ("Player score: " + playerScore + " Computer score: " + compScore)
-        winnerP3.innerText = ("-Click a weapon to reset and play again-");
-        winnerDisplay.append(winnerP2);
+        //winnerP2.innerText = ("Player score: " + playerScore + " Computer score: " + compScore)
+        winnerP3.innerText = ("-Click an option to play again!");
         winnerDisplay.append(winnerP1);
+       // winnerDisplay.append(winnerP2);
         winnerDisplay.append(winnerP3);
         playerScore = 0;
         compScore = 0;
         return
     }
     else{
-        winnerP1.innerText = " ";
-        winnerP2.innerText = " ";
-        winnerP3.innerText = " ";
+        winnerDisplay.removeChild(winnerP1);
+        //winnerP1.innerText = " ";
+       // winnerP2.innerText = " ";
+        winnerDisplay.removeChild(winnerP3);
+        //winnerP3.innerText = " ";
     }
     
 }
-
-//function toggleText() {
-  //  let text = winnerP1
-    //if (text.style.display === "none") {
-//   text.style.display = "block";
-    //} else {
-    //    text.style.display = "none";
-   // }
-//}
- 
-//function cleanSlate(){
-  //  winnerP1.style.display = "none";
-//   }
-
 
 let playerSelection
 
@@ -217,6 +228,7 @@ const btnRock = document.querySelector('#btnRock');
     btnRock.addEventListener('click', function(){
         console.log(computerSelection)});
     btnRock.addEventListener('click', playRound);
+    btnRock.addEventListener('click', resultRound);
     btnRock.addEventListener('click', keepScore);
     btnRock.addEventListener('click', claimVictory);
     
@@ -229,6 +241,7 @@ const btnPaper = document.querySelector('#btnPaper');
     btnPaper.addEventListener('click', function(){
         console.log(computerSelection)});
     btnPaper.addEventListener('click', playRound);
+    btnPaper.addEventListener('click', resultRound);
     btnPaper.addEventListener('click', keepScore);
     btnPaper.addEventListener('click', claimVictory);
 
@@ -241,6 +254,7 @@ const btnScissors = document.querySelector('#btnScissors');
     btnScissors.addEventListener('click', function(){
         console.log(computerSelection)});
     btnScissors.addEventListener('click', playRound);
+    btnScissors.addEventListener('click', resultRound);
     btnScissors.addEventListener('click', keepScore);
     btnScissors.addEventListener('click', claimVictory);
 
