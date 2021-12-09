@@ -165,7 +165,7 @@ function claimVictory(){
     if (playerScore >= 5 || compScore >= 5) {
         winnerP1.innerText = ("You Win! Do you feel better about yourself now?")
         //winnerP2.innerText = ("FINAL: Player score: " + playerScore + " Computer score: " + compScore)
-        winnerP3.innerText = ("-Click a weapon to reset and play again-");
+        winnerP3.innerText = ("-Click an Option to Play Again-");
         winnerDisplay.append(winnerP1);
         //winnerDisplay.append(winnerP2);
         winnerDisplay.append(winnerP3);
@@ -176,7 +176,7 @@ function claimVictory(){
     else if (compScore >= 5){
         winnerP1.innerText = ("You lose! I beat you! I don't even have a brain!")
         //winnerP2.innerText = ("Player score: " + playerScore + " Computer score: " + compScore)
-        winnerP3.innerText = ("-Click an option to play again!");
+        winnerP3.innerText = ("-Click an Option to Play Again-");
         winnerDisplay.append(winnerP1);
        // winnerDisplay.append(winnerP2);
         winnerDisplay.append(winnerP3);
