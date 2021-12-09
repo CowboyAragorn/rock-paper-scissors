@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.buttons{
+    display:flex;
+    justify-content: center;
+    background-color: cornflowerblue;
+}
+
+.button{
+   height: 80pt;
+   width: 100%;
+   font-size: 25pt;
+   margin: 3%;
+
+}
+
+.scoreContainer{
+    display: flex;
+    justify-content: center;
+    gap: 25%;
+    background-color: cornflowerblue;
+    font-size: 25pt;
+
+}

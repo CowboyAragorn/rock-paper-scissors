@@ -5,21 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="button" id = btnRock>Rock</button>
-    <button class="button" id = btnPaper >Paper</button>
-    <button class="button" id = btnScissors>Scissors</button>
-    <br>
-    <div class ="score" id = playerScore>
-        <p>Player Score: <span id=playerScoreTally></span> </p>
+    <div class = buttons>
+        <button class="button" id = btnRock>Rock</button>
+        <button class="button" id = btnPaper >Paper</button>
+        <button class="button" id = btnScissors>Scissors</button>
+    </div>
 
+
+    <div class = "scoreContainer">
+        <div class ="score" id = playerScoreContainer>
+            <span id=playerScoreTally></span>
+        </div>
+
+        <div class ="score" id = compScoreContainer>
+            <span id=compScoreTally></span>
+        </div>
     </div>
-    <br>
-    <div class ="score" id = compScore>
-        <p>Computer Score: <span id=compScoreTally></span> </p>
-    </div>
-    <br>
+
     <div id = winner>
         
     </div>

@@ -108,10 +108,27 @@ function keepScore(){
     const playerScoreDisplay = document.querySelector("#playerScoreTally");
         //const playerP1 = document.createElement("p");
         //playerP1.innerText = (playerScore);
-        playerScoreDisplay.innerText = playerScore;
     const compScoreDisplay = document.querySelector("#compScoreTally");
-        compScoreDisplay.innerText = compScore;
-   
+     
+    if(playerScore === 0 && compScore === 0){
+        playerScoreDisplay.innerText = "Player Score: " + "0";
+        compScoreDisplay.innerText = "Computer Score: " + "0";
+    }
+
+    else if (compScore === 0){
+        playerScoreDisplay.innerText = "Player Score: " + playerScore;
+        compScoreDisplay.innerText = "Computer Score: " + "0"
+    }
+     else if (playerScore === 0){
+        playerScoreDisplay.innerText = "Player Score: " + "0";
+        compScoreDisplay.innerText = "Computer Score: " + compScore
+    }
+
+    else {
+        playerScoreDisplay.innerText = "Player Score: " + playerScore;
+        compScoreDisplay.innerText = "Computer Score: " + compScore;
+    }
+
   }
 
 const winnerP1 = document.createElement("p")
@@ -129,8 +146,8 @@ function claimVictory(){
         winnerDisplay.append(winnerP2);
         winnerDisplay.append(winnerP1);
         winnerDisplay.append(winnerP3);
-        playerScore = [];
-        compScore = [];
+        playerScore = 0;
+        compScore = 0;
         return
     }
     else if (compScore >= 5){
@@ -140,8 +157,8 @@ function claimVictory(){
         winnerDisplay.append(winnerP2);
         winnerDisplay.append(winnerP1);
         winnerDisplay.append(winnerP3);
-        playerScore = [];
-        compScore = [];
+        playerScore = 0;
+        compScore = 0;
         return
     }
     else{
