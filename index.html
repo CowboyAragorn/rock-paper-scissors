@@ -8,24 +8,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1 class = banner id = header>Rock - Paper - Scissors</h1>
+        <h2 class = banner id =subheader>Choose or I Hate You For Life</h2>
+    </header>
     <div class = buttons>
         <button class="button" id = btnRock>Rock</button>
         <button class="button" id = btnPaper >Paper</button>
         <button class="button" id = btnScissors>Scissors</button>
     </div>
 <div id = roundInfoContainer>
-        <div class =roundContainer>
-            <span id=playerSelection></span>
-            <span id=compSelection></span>
-        </div>
 
         <div class = "scoreContainer">
             <div class ="score" id = playerScoreContainer>
-                <span id=playerScoreTally></span>
+                <h3>Player:</h3>
+                <p id=playerSelection></p>
+                <p id=playerScoreTally></p>
             </div>
 
             <div class ="score" id = compScoreContainer>
-                <span id=compScoreTally></span>
+                <h3>Computer:</h3>
+                <p id=compSelection></p>
+                <p id=compScoreTally></p>
             </div>
         </div>
 </div>

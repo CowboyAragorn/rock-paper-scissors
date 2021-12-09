@@ -116,8 +116,8 @@ const compSelectionDisplay = document.querySelector("#compSelection");
 function resultRound(){
     playerSelectionUpper = playerSelection.toUpperCase();
     compSelectionUpper = computerSelection.toUpperCase();
-    playerSelectionDisplay.innerText = ("Player Chose: " + playerSelectionUpper) ;
-    compSelectionDisplay.innerText = ("Computer Chose: " + compSelectionUpper);
+    playerSelectionDisplay.innerText = (playerSelectionUpper) ;
+    compSelectionDisplay.innerText = (compSelectionUpper);
 }
 
 
