@@ -72,29 +72,32 @@ function playRound() {
 
 
     else if (playerSelection ==="scissors" && computerSelection === "rock"){
-        compScore++;
+        
         console.log ("You lose :( - Rock beats Scissors");
+        return compScore++
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
-        playerScore++;
-        console.log("You win - Scissors beats Paper!");
         
+        console.log("You win - Scissors beats Paper!");
+        return playerScore++
     }
     else if (playerSelection === "scissors" && computerSelection === "scissors") {
         console.log ("Scissors ties with scissors");
-    }
+    }   
     
 
     else if (playerSelection === "paper" && computerSelection === "rock") {
-        playerScore++;
+       
         console.log("You win - Paper beats Rock!");
+        return playerScore++
     }
     else if (playerSelection === "paper" && computerSelection === "paper") {
         console.log("Paper ties with Paper");
     }
     else if (playerSelection === "paper" && computerSelection === "scissors") {
-        compScore++;
+        
         console.log("You lose :( - Scissors beats Paper");
+        return compScore++
     }
 }
 
@@ -112,20 +115,55 @@ function keepScore(){
   }
 
 const winnerP1 = document.createElement("p")
+const winnerP2 = document.createElement("p")
+const winnerP3 = document.createElement("p")
+
+
+
 function claimVictory(){
     const winnerDisplay = document.querySelector("#winner");
     if (playerScore >= 5 || compScore >= 5) {
-        winnerP1.innerText = ("Player score: " + playerScore + " Computer score: " + compScore)
+        winnerP1.innerText = ("You Win! Do you feel better about yourself now?")
+        winnerP2.innerText = ("FINAL: Player score: " + playerScore + " Computer score: " + compScore)
+        winnerP3.innerText = ("-Click a weapon to reset and play again-");
+        winnerDisplay.append(winnerP2);
         winnerDisplay.append(winnerP1);
+        winnerDisplay.append(winnerP3);
         playerScore = [];
         compScore = [];
         return
     }
+    else if (compScore >= 5){
+        winnerP1.innerText = ("You lose! I beat you! I don't even have a brain!")
+        winnerP2.innerText = ("Player score: " + playerScore + " Computer score: " + compScore)
+        winnerP3.innerText = ("-Click a weapon to reset and play again-");
+        winnerDisplay.append(winnerP2);
+        winnerDisplay.append(winnerP1);
+        winnerDisplay.append(winnerP3);
+        playerScore = [];
+        compScore = [];
+        return
+    }
+    else{
+        winnerP1.innerText = " ";
+        winnerP2.innerText = " ";
+        winnerP3.innerText = " ";
+    }
+    
 }
+
+//function toggleText() {
+  //  let text = winnerP1
+    //if (text.style.display === "none") {
+//   text.style.display = "block";
+    //} else {
+    //    text.style.display = "none";
+   // }
+//}
  
-function cleanSlate(){
-    winnerP1.style.display = "none";
-   }
+//function cleanSlate(){
+  //  winnerP1.style.display = "none";
+//   }
 
 
 let playerSelection
@@ -164,22 +202,30 @@ const btnRock = document.querySelector('#btnRock');
     btnRock.addEventListener('click', playRound);
     btnRock.addEventListener('click', keepScore);
     btnRock.addEventListener('click', claimVictory);
+    
 
 const btnPaper = document.querySelector('#btnPaper');
     btnPaper.addEventListener('click', chosePaper);
-    btnPaper.addEventListener('click', function(){
+       btnPaper.addEventListener('click', function(){
         console.log(playerSelection)});
     btnPaper.addEventListener('click', computerPlay);
+    btnPaper.addEventListener('click', function(){
+        console.log(computerSelection)});
+    btnPaper.addEventListener('click', playRound);
+    btnPaper.addEventListener('click', keepScore);
+    btnPaper.addEventListener('click', claimVictory);
+
 
 const btnScissors = document.querySelector('#btnScissors');
     btnScissors.addEventListener('click', choseScissors);
-    btnScissors.addEventListener('click', function(){
+      btnScissors.addEventListener('click', function(){
         console.log(playerSelection)});
     btnScissors.addEventListener('click', computerPlay);
-
-
-
-
+    btnScissors.addEventListener('click', function(){
+        console.log(computerSelection)});
+    btnScissors.addEventListener('click', playRound);
+    btnScissors.addEventListener('click', keepScore);
+    btnScissors.addEventListener('click', claimVictory);
 
 
 //Function that calls the rounds 5 times and displays scores. Delivers win vs loss message at end//
