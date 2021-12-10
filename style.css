@@ -68,24 +68,28 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15%;
-    
+    gap: 8%;
     font-size: 20pt;
     padding: 15px;
     padding-bottom: 25pt;
 
 }
-#playerScoreContainer , #compScoreContainer{
+#playerScoreContainer , #compScoreContainer , #scoreDisplayContainer{
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   width: 12%;
+   width: 13%;
    height: inherit;
    border-sizing: border-box;
    padding: 15px;
 
 }
+ #scoreDisplayContainer{
+     width: 8%;
+     color: #FBF3F2;
+     font-weight: bold;
+ }
 
 .score{
    margin: 5%;

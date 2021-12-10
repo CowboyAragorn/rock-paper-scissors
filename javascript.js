@@ -60,63 +60,64 @@ function playRound() {
     //Would rewrite roundResult into something that the variables would auto-plug into but
     //already have the sentences written from previous iteration
 
-("player " + playerSelection + " BEATS computer " + computerSelection);
 
     if (playerSelection === "rock" && computerSelection === "rock"){
-        roundResult = ("player " + playerSelection + " TIES computer " + computerSelection);
+        roundResult = "Tie";
         
         return
     }
     else if (playerSelection ==="rock" && computerSelection === "scissors") {;
-        roundResult = ("player " + playerSelection + "          BEATS computer      " + computerSelection);
+        roundResult = "You Won!";
         return playerScore++
     }   
     else if (playerSelection ==="rock" && computerSelection === "paper"){
-        
-        roundResult = ("player " + playerSelection + " LOSES to computer " + computerSelection);
+        roundResult = "You Lost!";
         return compScore++
     }
 
 
     else if (playerSelection ==="scissors" && computerSelection === "rock"){
         
-        roundResult = "Rock beats Scissors";
+        roundResult = "You Lost!";
         return compScore++
     }
     else if (playerSelection === "scissors" && computerSelection === "paper") {
         
-        roundResult ="Scissors beats Paper!";
+        roundResult = "You Won!";
         return playerScore++
     }
     else if (playerSelection === "scissors" && computerSelection === "scissors") {
-        roundResult = "Scissors ties with scissors";
+        roundResult = "Tie";
+        return 
     }   
     
 
     else if (playerSelection === "paper" && computerSelection === "rock") {
        
-        roundResult = "Paper beats Rock!";
+        roundResult = "You Won!"
         return playerScore++
     }
     else if (playerSelection === "paper" && computerSelection === "paper") {
-        roundResult = "Paper ties with Paper";
+        roundResult = "Tie";
+        return
     }
     else if (playerSelection === "paper" && computerSelection === "scissors") {
         
-        roundResult = "Scissors beats Paper";
+        roundResult = "You Lost!";
         return compScore++
     }
 }
 
 const playerSelectionDisplay = document.querySelector("#playerSelection");
 const compSelectionDisplay = document.querySelector("#compSelection");
-
+const roundResultDisplay =  document.querySelector("#roundResultDisplay")
 
 
 function resultRound(){
     playerSelectionUpper = playerSelection.toUpperCase();
     compSelectionUpper = computerSelection.toUpperCase();
     playerSelectionDisplay.innerText = (playerSelectionUpper) ;
+    roundResultDisplay.innerText = roundResult;
     compSelectionDisplay.innerText = (compSelectionUpper);
 }
 
