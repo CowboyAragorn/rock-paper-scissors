@@ -10,32 +10,35 @@
 <body>
     <header>
         <h1 class = banner id = header>Rock - Paper - Scissors</h1>
-        <h2 class = banner id =subheader>Choose or I Hate You For Life</h2>
+        <h2 class=banner id=subheader1>Game to 5</h2>
+        <h2 class = banner id =subheader2>Choose or I Hate You For Life</h2>
+       
     </header>
     <div class = buttons>
-        <button class="button" id = btnRock>Rock</button>
-        <button class="button" id = btnPaper >Paper</button>
-        <button class="button" id = btnScissors>Scissors</button>
+        <input type ="image" src="images/transrock.png" class="button" id = btnRock></input>
+        <input type="image" src="images/transPaper.png" class="button" id = btnPaper >
+        <input type="image" src="images/transScissors.png" class = "button" id = btnScissors>
     </div>
 <div id = roundInfoContainer>
 
         <div class = "scoreContainer">
-            <div class ="score" id = playerScoreContainer>
-                <h3>Player:</h3>
-                <p id=playerSelection></p>
-                <p id=playerScoreTally></p>
+            <div  id = playerScoreContainer>
+                <h3 class ="score">Player:</h3>
+                <p class ="score" id=playerSelection></p>
+                <p class ="score" id=playerScoreTally></p>
             </div>
 
-            <div class ="score" id = compScoreContainer>
-                <h3>Computer:</h3>
-                <p id=compSelection></p>
-                <p id=compScoreTally></p>
+            <div id = compScoreContainer>
+                <h3 class ="score">Computer:</h3>
+                <p class= "score" id=compSelection></p>
+                <p class ="score" id=compScoreTally></p>
             </div>
         </div>
 </div>
-    <div id = winner>
-        
+</body>
+<footer>
+    <div id=winner>
     </div>
     <script src="javascript.js"></script>
-</body>
+</footer>
 </html>
